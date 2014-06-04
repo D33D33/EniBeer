@@ -1,0 +1,8 @@
+/target
+.idea
+node_modules
+data
+
+/target
+/app/newrelic_agent.log
+/newrelic_agent.log

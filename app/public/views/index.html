@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Liste des bi&egrave;res</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Nom</th>
+                            <th>Prix</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="beer in beers">
+                            <td></td>
+                            <td>{{beer.name}}</td>
+                            <td>{{beer.price | currency}}</td>
+                            <td>
+                                <button type="button" class="btn btn-default" ng-click="addToCart(beer)">Ajouter</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Mon panier</h3>
+                </div>
+                <div class="panel-body">
+                    <div ng-if="success==true" class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="dismiss()">&times;</button>
+                        <strong>Well done!</strong> Votre panier a &eacute;t&eacute; valid&eacute;
+                    </div>
+                    <div ng-if="success==false" class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="dismiss()">&times;</button>
+                        <strong>Oh snap!</strong> Une erreur c'est produite
+                    </div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Quanti&eacute;</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="beer in cart.beers">
+                            <td>{{beer.name}}</td>
+                            <td>{{beer.quantity}}</td>
+                            <td>{{beer.quantity * beer.price | currency}}</td>
+                            <td>
+                                <button type="button" class="btn btn-default" ng-click="removeFromCart(beer)">Retirer</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div><strong>Total : </strong>{{cart.amount | currency}}</div>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-danger" ng-click="emptyCart(beer)">Annuler</button>
+                        <button type="button" ng-disabled="cart.amount == 0" class="btn btn-success" ng-click="validateCart(beer)">Valider
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+html {
+    height: 100%;
+}
+
+body {
+    padding-top: 80px;
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -30px;
+}

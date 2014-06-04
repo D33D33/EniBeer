@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Liste des bi&egrave;res</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nom</th>
+                            <th>Degr&eacute;s</th>
+                            <th>Prix</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="beer in beers">
+                            <td>{{beer.code}}</td>
+                            <td>{{beer.name}}</td>
+                            <td>{{beer.alcoholic}}</td>
+                            <td>{{beer.price | currency}}</td>
+                            <td>
+                                <button type="button" class="btn btn-default" ng-click="editBeer(beer)">Editer</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger" ng-click="deleteBeer(beer)">Supprimer</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary pull-right" ng-click="create()">Nouveau</button>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default" ng-if="beer">
+                <div class="panel-heading">
+                    <h3 class="panel-title" ng-if="beer._id">&Eacute;dition</h3>
+                    <h3 class="panel-title" ng-if="!beer._id">Cr&eacute;ation</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" ng-model="beer.name">
+                        </div>
+                        <div class="form-group">
+                            <label for="code">Code</label>
+                            <input type="number" class="form-control" id="code" placeholder="Enter code" ng-model="beer.code">
+                        </div>
+                        <div class="form-group">
+                            <label for="alcoholic">Degr&eacute;s</label>
+                            <input type="number" class="form-control" id="alcoholic" placeholder="Enter alcoholic" ng-model="beer.alcoholic">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Prix</label>
+                            <input type="number" class="form-control" id="price" placeholder="Enter price" ng-model="beer.price">
+                        </div>
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-danger" ng-click="cancel()">Annuler</button>
+                            <button type="button" class="btn btn-success" ng-click="validate()">Valider
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

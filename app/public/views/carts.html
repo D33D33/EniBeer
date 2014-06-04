@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Liste des paniers</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Utilisateur</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="cart in carts">
+                            <td></td>
+                            <td>{{cart.user.firstName}} {{cart.user.lastName}}</td>
+                            <td>{{cart.amount | currency}}</td>
+                            <td>
+                                <button type="button" class="btn btn-default" ng-click="view(cart)">Visualiser</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default" ng-if="cart">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{cart.user.firstName}} {{cart.user.lastName}}</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Quanti&eacute;</th>
+                            <th>Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="beer in cart.beers">
+                            <td>{{beer.name}}</td>
+                            <td>{{beer.quantity}}</td>
+                            <td>{{beer.quantity * beer.price | currency}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

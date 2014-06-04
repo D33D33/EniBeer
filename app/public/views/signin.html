@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h2>J'ai déja un compte</h2>
+
+                    <form role="form" name="signinForm">
+                        <div ng-hide="! errorLogin" class="alert alert-danger">Oups, une erreur s'est produite. Merci de r&eacute;essayer.</div>
+                        <div ng-hide="! failureLogin" class="alert alert-danger">Votre adresse e-mail ou votre mot de passe est inconnu</div>
+                        <div class="form-group {{signinForm.inputEmail1.$error.required ? '' : signinForm.inputEmail1.$valid ? 'has-success' : 'has-error'}}">
+                            <label for="InputEmail1">Votre adresse e-mail</label>
+                            <input name="inputEmail1" ng-model="signin.email" type="email" required class="form-control"
+                                   id="InputEmail1" autocomplete="off" autofocus>
+                        </div>
+                        <div class="form-group {{signinForm.inputPassword1.$error.required ? '' : signinForm.inputPassword1.$valid ? 'has-success' : 'has-error'}}">
+                            <label for="InputPassword1">Votre mot de passe</label>
+                            <input name="inputPassword1" ng-model="signin.password" type="password" required class="form-control"
+                                   id="InputPassword1" autocomplete="off">
+                        </div>
+                        <button ng-click="login()" type="submit" class="btn btn-default">Valider</button>
+                        <!--<a href="#lostpassword" class="btn btn-primary pull-right">Mot de passe perdu</a>-->
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>Je crée mon compte</h2>
+
+                    <form role="form" name="signupForm">
+                        <div ng-hide="! validationFailure.asError" class="alert alert-danger">Certaines informations semblent incorrectes</div>
+                        <div ng-hide="! validationFailure.unknown" class="alert alert-danger">Oups, une erreur s'est produite. Merci de r&eacute;essayer</div>
+                        <div class="form-group {{signupForm.inputName2.$error.required ? '' : signupForm.inputName2.$valid ? 'has-success' : 'has-error'}}">
+                            <label for="InputName2" class="{{validationFailure.emptyName ? 'text-danger' : ''}}">Vos nom et pr&eacute;nom{{validationfailure.emptyname
+                                ? ' sont requis' : ''}}</label>
+
+                            <div class="row row-offcanvas row-offcanvas-right">
+                                <div class="col-xs-12 col-sm-6">
+                                    <input name="inputName2" ng-model="signup.lastname" placeholder="Nom" type="text"
+                                           class="form-control" id="InputName2" required autocomplete="off">
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <input name="inputName2" ng-model="signup.firstname" placeholder="Pr&eacute;nom" type="text"
+                                           class="form-control" required autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group {{signupForm.inputEmail2.$error.required ? '' : signupForm.inputEmail2.$valid ? 'has-success' : 'has-error'}}">
+                            <label for="InputEmail2"
+                                   class="{{validationFailure.emptyEmail || validationFailure.duplicateEmail ? 'text-danger' : ''}}">Votre
+                                adresse e-mail{{validationFailure.emptyEmail ? ' est requise' : ''}}{{validationFailure.duplicateEmail ? ' est
+                                déja utilisée' : ''}}</label>
+                            <input name="inputEmail2" ng-model="signup.email" type="email" class="form-control"
+                                   id="InputEmail2" required autocomplete="off">
+                        </div>
+                        <div class="form-group {{signupForm.inputPassword2.$error.required ? '' : signupForm.inputPassword2.$valid ? 'has-success' : 'has-error'}}">
+                            <label for="InputPassword2" class="{{validationFailure.emptyPassword ? 'text-danger' : ''}}">Cr&eacute;ez un mot de
+                                passe{{validationFailure.emptyPassword ? ' est obligatoire' : ''}} (au moins 6 caract&egrave;res)</label>
+                            <input name="inputPassword2" ng-model="signup.password" type="password" ng-minlength="6"
+                                   class="form-control" id="InputPassword2" required autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPhone2" class="{{validationFailure.duplicatePhone ? 'text-danger' : ''}}">Votre num&eacute;ro de t&eacute;l&eacute;phone{{validationFailure.duplicatePhone
+                                ? ' est déja utilisé' : ''}} (optionnel)</label>
+                            <input name="inputPhone2" ng-model="signup.phone" type="tel" class="form-control" id="InputPhone2"
+                                   autocomplete="off">
+                        </div>
+                        <button ng-click="create()" type="submit" class="btn btn-default">Valider</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
