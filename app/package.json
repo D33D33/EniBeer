@@ -17,7 +17,8 @@
         "mongoose": "*",
         "connect-mongo": "*",
         "connect-flash": "*",
-        "view-helpers": "*"
+        "view-helpers": "*",
+        "validator": "*"
     },
     "devDependencies": {
         "grunt": "~0.4.2",

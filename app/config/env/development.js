@@ -1,7 +1,7 @@
 module.exports = {
-    db: process.env.MONGOHQ_URL_EASYFAIR || "mongodb://localhost/enibeer-dev",
+    db: process.env.MONGOHQ_URL_ENIBEER || "mongodb://localhost/enibeer-dev",
     app: {
-        name: "EASYFEAR - A Modern fear management system - Development"
+        name: "ENIBEER - A Modern beer management system - Development"
     },
     facebook: {
         clientID: "APP_ID",
